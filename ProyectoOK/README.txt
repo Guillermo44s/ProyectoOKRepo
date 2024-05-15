@@ -1,0 +1,2 @@
+﻿Documetcion para usar git en visual studio 2022 ,link => https://learn.microsoft.com/es-es/visualstudio/version-control/git-make-commit?view=vs-2022
+Documentacion para las convenciones de nomenclatura en c#, link => https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/coding-style/identifier-names

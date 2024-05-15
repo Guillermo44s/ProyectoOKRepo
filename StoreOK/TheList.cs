@@ -22,12 +22,12 @@ namespace StoreOK
                 List<TheProduct> listproduct = new List<TheProduct>();
                 while (connection.Reader.Read())
                 {
-                    product.idProduct = int.Parse(connection.Reader["idProduct"].ToString());
-                    product.product = connection.Reader["product"].ToString();
-                    product.price = double.Parse(connection.Reader["price"].ToString());
-                    product.description = connection.Reader["description"].ToString();
-                    product.cant = int.Parse(connection.Reader["cant"].ToString());
-                    product.available = (bool)connection.Reader["available"];
+                    product.IdProduct = int.Parse(connection.Reader["idProduct"].ToString());
+                    product.Product = connection.Reader["product"].ToString();
+                    product.Price = double.Parse(connection.Reader["price"].ToString());
+                    product.Description = connection.Reader["description"].ToString();
+                    product.Cant = int.Parse(connection.Reader["cant"].ToString());
+                    product.Available = (bool)connection.Reader["available"];
                     listproduct.Add(product);
                 }
                 return listproduct;

@@ -1,0 +1,80 @@
+﻿ <form id="form1" runat="server" class="container-fluid cadetblue h-100">
+
+        <div class="col-1 burlywood">
+                LOGO
+         </div>
+         
+        <div class="row text-center">   <!--BARRA DE BUSQUEDA Y DEMAS -->
+
+               <div class="col-1">
+                   Icon
+               </div>
+               <div class="col-11">
+                <asp:TextBox ID="TextBox1" CssClass="form-control" placeholder="search" runat="server"></asp:TextBox>
+               </div>   
+
+         </div>  <!--FIN BARRA DE BUSQUEDA Y DEMAS -->
+
+        <hr />
+        
+<div class="container-fluid"> <!--MENU Y CONTENIDO -->
+
+    <div class="row">
+
+   <div class="col col-2" style="background-color: aquamarine"> <!--MENU -->
+    MENU
+       <div style="background-color: azure">Opcion1</div>
+       <div style="background-color:burlywood">Opcion2</div>
+       <div style="background-color: azure">Opcion3</div>
+       <div style="background-color:burlywood">Opcion5</div>
+
+   </div>  <!--FIN MENU -->
+    <div class="col col-10"> <!-- CONTENIDO-->
+       
+        <div class="row">
+
+        <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="..."/>
+        <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        </div>
+
+              <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="..."/>
+  <div class="card-body">
+  <h5 class="card-title">Card title</h5>
+  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  </div>
+
+              <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="..."/>
+  <div class="card-body">
+  <h5 class="card-title">Card title</h5>
+  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  </div>
+
+        </div>
+
+
+    </div> <!--FIN DEL CONTENIDO -->
+
+    </div>
+
+</div> <!-- FIN DE MENU Y CONTENIDO -->
+
+      
+        <div class="container-fluid cadetblue position-absolute bottom-0 start-0"><!-- FOOTER -->
+
+            footer
+      
+        </div>   <!-- FIN DEL FOOTER -->
+
+    </form>
+</html>

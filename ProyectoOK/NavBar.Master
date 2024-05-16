@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavBar.master.cs" Inherits="ProyectoOK.NavBar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+<!-- As a heading -->
+<nav class="navbar bg-body-tertiary " data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+  </div>
+</nav>
+
+        <div class="container">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
+            </asp:ContentPlaceHolder>
+
+        </div>
+
+    </form>
+</body>
+</html>

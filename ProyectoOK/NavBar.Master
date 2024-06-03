@@ -11,22 +11,27 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
 
 <!-- As a heading -->
 <nav class="navbar bg-body-tertiary " data-bs-theme="dark">
+
   <div class="container-fluid">
+
     <span class="navbar-brand mb-0 h1">Navbar</span>
+
   </div>
+
 </nav>
 
-        <div class="container">
+        <div class="container-fluid">
 
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">                  
+    <form id="form1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> 
+                
             </asp:ContentPlaceHolder>
+    </form>
 
         </div>
 
-    </form>
 </body>
 </html>

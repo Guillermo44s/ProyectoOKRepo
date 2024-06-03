@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TheConnection.cs" />
+    <Compile Include="TheImages.cs" />
     <Compile Include="TheList.cs" />
+    <Compile Include="TheProcedures.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DominioOK\DominioOK.csproj">

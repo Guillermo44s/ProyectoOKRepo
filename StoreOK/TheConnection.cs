@@ -42,7 +42,18 @@ namespace StoreOK
             command.ExecuteNonQuery();
         }
 
-        internal void GetData()
+        internal int ExecuteActionScalar()
+        {
+             int id;
+             command.Connection.Open();
+            /*
+               id = int.Parse(command.ExecuteScalar().ToString()); //DEVUELVE EL RESULTADO DE LA PRIMER FILA.
+               return id;
+            */
+            return id = int.Parse(command.ExecuteScalar().ToString());
+        }
+
+        internal void ExecuteQuery()
         {
             command.Connection.Open();
             reader = command.ExecuteReader();

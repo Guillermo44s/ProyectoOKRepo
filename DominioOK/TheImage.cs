@@ -10,6 +10,6 @@ namespace DominioOK
     {
         public int IdImage {  get; set; }
         public string UrlImage { get; set; }
-        public TheProduct Product { get; set; }
+        public int IdProduct { get; set; }
     }
 }

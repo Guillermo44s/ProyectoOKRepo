@@ -161,3 +161,4 @@ namespace ProyectoOK
     }
 }
 //TODO: Se debe valiar en el formulario que solo se prodra cargar la infomracion si completo todos los campos incluso imagen de portada y demas.
+//Hola, estoy probando hacer un merge desde la rama Guillermo.

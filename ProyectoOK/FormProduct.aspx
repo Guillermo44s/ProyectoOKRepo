@@ -9,65 +9,95 @@
     <title></title>
 </head>
 <body>
+  
     <form id="form1" runat="server">
-        
+    
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
         <div class="container">
+
+            <div class="col">
+                <asp:TextBox ID="txtIdProduct" runat="server"></asp:TextBox>
+            </div>
 
 <div class="col">
 
+    <asp:Label ID="lblProduct" runat="server" Text="Product"></asp:Label>
     <asp:TextBox ID="txtProduct" runat="server"></asp:TextBox>
 
 </div>
 
  <div class="col">
 
+     <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
     <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
 
  </div>
 
  <div class="col">
 
+     <asp:Label ID="lblPrice" runat="server" Text="Price"></asp:Label>
     <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
 
  </div>
 
  <div class="col">
 
+     <asp:Label ID="lblAvailable" runat="server" Text="Available"></asp:Label>
     <asp:CheckBox ID="chkAvailable" runat="server" />
 
  </div>
 
  <div class="col">
 
+    <asp:Label ID="lblCant" runat="server" Text="Cant"></asp:Label>
     <asp:TextBox ID="txtCant" runat="server"></asp:TextBox>
 
  </div>
 
- <div class="col">
+<div>
 
-     <asp:FileUpload ID="fileImagen" runat="server" AllowMultiple="true"/>
-     <asp:Button  for="fileImagen" runat="server" Text="+" />
+    <asp:FileUpload ID="fileInputImageCover" runat="server"/>
 
- </div>
+</div>
 
- <div class="col">
+<div>
 
-     <asp:Image ID="imgImage" runat="server" />
+     <div id="imagePreviewCover">
 
- </div>
+         <h2>Cover Image</h2>
+         <asp:Image ID="imgProductCover"  ImageUrl="" runat="server" />
+
+    </div>
+
+</div>
+
+            <div class="col">
+
+                <asp:FileUpload ID="fileInputProductImages" runat="server"  AllowMultiple="true"/>
+
+            </div>
+
+            <div class="col" id="imagePreview">
+         
+                 <h2>Product Images</h2>
+                <asp:Panel ID="containerProductImagen" runat="server"></asp:Panel>
+
+            </div>
+
+     <div>
 
  <div class="row">
-
-   
-
+  
   <asp:Button ID="btnSaveProduct" runat="server" Text="Button" OnClick="btnSaveProduct_Click"/>
-
-
 
 </div>
 
  </div>
 
     </form>
+
+ <script src="Script/ShowImagesSelected.js" defer> </script>
+
 </body>
 </html>

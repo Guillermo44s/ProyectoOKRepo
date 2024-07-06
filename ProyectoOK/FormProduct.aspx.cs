@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using StoreOK;
 using DominioOK;
+using System.IO;
+using System.Reflection;
 
 namespace ProyectoOK
 {
@@ -14,86 +16,142 @@ namespace ProyectoOK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+         
+               if (Session["idProduct"] != null)
+               {                
+                TheList theList = new TheList();    
+                TheProduct theProduct = new TheProduct();
+                List<TheProduct> listProduct = theList.GetListProduct(); //Obtenemos la lista de todos los productos de la BD.                
+                theProduct = listProduct.FirstOrDefault(p => p.IdProduct == int.Parse(Session["idProduct"].ToString()));  //Expresion lambda para filtrar y obtener el producto con el id correspondiente de la lista.
+                txtProduct.Text = theProduct.Product;
+                txtDescription.Text = theProduct.Description;
+                txtPrice.Text = theProduct.Price.ToString();
+                chkAvailable.Checked = theProduct.Available;
+                txtCant.Text = theProduct.Cant.ToString();
+                txtIdProduct.Text = theProduct.IdProduct.ToString();
+              
+                TheImages theImages = new TheImages(); 
+                List<string> listUrlImages = new List<string>();
+                listUrlImages = theImages.GetUrlImagesProduct(theProduct.IdProduct);
+                Image imageProductCover = (Image)Page.FindControl("imgProductCover");
+
+                
+                //Aqui se busca y carga la imagen de portada.
+                for(int i = 0; i < listUrlImages.Count; i++)
+                {
+                string relativePath = @"~/ImageCover/";
+                string physicalPath = Server.MapPath("/ImageCover/"+listUrlImages[i]);
+                string imagePath = relativePath + listUrlImages[i];
+                if(System.IO.File.Exists(physicalPath))
+                    {
+                    imageProductCover.ImageUrl = imagePath;    
+                    break;
+                    }
+                }
+
+                for (int i = 0; i < listUrlImages.Count; i++)
+                {
+                string relativePath = @"~/Image/";
+                string physicalPath = Server.MapPath("/Image/" + listUrlImages[i]);
+                string imagePath = relativePath + listUrlImages[i];
+                    if (System.IO.File.Exists(physicalPath))
+                    {
+                        Image image = new Image();
+                        image.ImageUrl = imagePath;
+                        containerProductImagen.Controls.Add(image);
+                    }
+                }
+               }                                                         
         }
 
         protected void btnSaveProduct_Click(object sender, EventArgs e)
-        {          
+        {
             TheProcedures theProcedures = new TheProcedures();
             TheProduct theProduct = new TheProduct();
-            //FileUpload file = (FileUpload)FindControl("fileImagen");
-            HttpFileCollection fileCollection = Request.Files;
+
+            FileUpload imagenProductCover = (FileUpload)FindControl("fileInputImageCover");
+            HttpFileCollection fileCollection = Request.Files; //Aqui se tomas las iamgenes del "fileInputProductImages"
             try
             {
-                
                 theProduct.Product = txtProduct.Text;
                 theProduct.Description = txtDescription.Text;
                 theProduct.Price = Decimal.Parse(txtPrice.Text);
                 theProduct.Available = chkAvailable.Checked;
-                theProduct.Cant = int.Parse(txtCant.Text); 
-                //theProcedures.AddProduct(theProduct);            
-                SaveImageFile(fileCollection, theProcedures.AddProduct(theProduct)); //Llamamos al metodo AddProduct para agregar un producto y obtener el id producto para guardar la imagen.
+                theProduct.Cant = int.Parse(txtCant.Text);
+
+                //Aqui filtramos las imagenes del FileUpload "fileInputImages" del otro "FileInputCover".
+                List<HttpPostedFile> listProductImages = new List<HttpPostedFile>();
+                foreach(HttpPostedFile image in fileCollection.GetMultiple("fileInputProductImages"))
+                {
+                    listProductImages.Add(image);
+                }
+
+                int idProduct = theProcedures.AddProduct(theProduct);
+                SaveImages(imagenProductCover, listProductImages, idProduct); //Llamamos al metodo AddProduct para agregar un producto y obtener el id producto para guardar la imagen.
+
+                Session["idProduct"] = idProduct;
+                Response.Redirect("FormProduct.aspx");
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
-        private void ShowSelectedImages(int idProduct)
-        {
-            TheImages theImages = new TheImages();
-            List<string> listUrlImages = theImages.GetUrlImagesProduct(idProduct);
-            try
-            {
-                //Image image = (Image)Page.FindControl("imgImage");
-                foreach (string obj in listUrlImages)
-                {
-                    Image image = new Image();
-                    image.ID = "imgImage";
-                    image.ImageUrl = "~\\Image\\" + obj;
-                    Page.Controls.Add(image);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex.InnerException;
-            }
-        }
+        //HttpFileCollection 
 
-        private void SaveImageFile(HttpFileCollection fileCollection,int idProduct)
-        {
-            string path = Server.MapPath(@"~\Image\");         
-            TheImages theImages = new TheImages();   
-            List<string> listFileName = new List<string>(); 
+        private void SaveImages(FileUpload imagenProductCover, List<HttpPostedFile> listProductImages, int idProduct)
+        {                             
+            string  pathImages = Server.MapPath(@"\Image\");  
+            string pathImageCover = Server.MapPath(@"\ImageCover\");
+            TheImages theImages = new TheImages();
             try
             {
-                for(int i = 0; i < fileCollection.Count; i++) 
+                if (imagenProductCover.PostedFile.ContentType.Contains("image/jpeg") || imagenProductCover.PostedFile.ContentType.Contains("image/png"))
                 {
-                HttpPostedFile file = fileCollection[i];                
-                 string fileName = file.FileName;
-                if (file.ContentType.Contains("image/jpeg") || file.ContentType.Contains("image/png"))
-                {
-                    string pathToCheck = path + "/" + fileName;
+                    string pathToCheck = pathImageCover + imagenProductCover.FileName;
                     string tempFileName = "";
+                    string fileName = imagenProductCover.FileName;
                     if (System.IO.File.Exists(pathToCheck))
                     {
                         int counter = 2;
                         while (System.IO.File.Exists(pathToCheck))
                         {
                             tempFileName = counter.ToString() + "-" + fileName;
-                            pathToCheck = path + tempFileName;
+                            pathToCheck = pathImages + tempFileName;
                             counter++;
                         }
                         fileName = tempFileName;
                     }
-                    listFileName.Add(fileName);                  
-                    file.SaveAs(path + fileName);
+                    imagenProductCover.SaveAs(pathImageCover + fileName);
                     theImages.SaveProductImages(fileName, idProduct);
-                    fileName = "";
                 }
+                    for (int i = 0; i < listProductImages.Count; i++)
+                {
+                    HttpPostedFile image = listProductImages[i];
+                    string fileName = image.FileName;
+                    if (image.ContentType.Contains("image/jpeg") || image.ContentType.Contains("image/png"))
+                    {
+                        string pathToCheck = pathImages + fileName;
+                        string tempFileName = "";
+                        if (System.IO.File.Exists(pathToCheck))
+                        {
+                            int counter = 2;
+                            while (System.IO.File.Exists(pathToCheck))
+                            {
+                                tempFileName = counter.ToString() + "-" + fileName;
+                                pathToCheck = pathImages + tempFileName;
+                                counter++;
+                            }
+                            fileName = tempFileName;
+
+                        }
+                        image.SaveAs(pathImages + fileName);
+                        theImages.SaveProductImages(fileName, idProduct);
+                        fileName = "";
+                    }
                 }
-                ShowSelectedImages(idProduct);
             }
             catch (Exception ex)
             {
@@ -102,3 +160,4 @@ namespace ProyectoOK
         }
     }
 }
+//TODO: Se debe valiar en el formulario que solo se prodra cargar la infomracion si completo todos los campos incluso imagen de portada y demas.

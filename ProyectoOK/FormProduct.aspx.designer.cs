@@ -24,6 +24,33 @@ namespace ProyectoOK
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// Control txtIdProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdProduct;
+
+        /// <summary>
+        /// Control lblProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProduct;
+
+        /// <summary>
         /// Control txtProduct.
         /// </summary>
         /// <remarks>
@@ -31,6 +58,15 @@ namespace ProyectoOK
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProduct;
+
+        /// <summary>
+        /// Control lblDescription.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescription;
 
         /// <summary>
         /// Control txtDescription.
@@ -42,6 +78,15 @@ namespace ProyectoOK
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
+        /// Control lblPrice.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrice;
+
+        /// <summary>
         /// Control txtPrice.
         /// </summary>
         /// <remarks>
@@ -49,6 +94,15 @@ namespace ProyectoOK
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
+
+        /// <summary>
+        /// Control lblAvailable.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAvailable;
 
         /// <summary>
         /// Control chkAvailable.
@@ -60,6 +114,15 @@ namespace ProyectoOK
         protected global::System.Web.UI.WebControls.CheckBox chkAvailable;
 
         /// <summary>
+        /// Control lblCant.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCant;
+
+        /// <summary>
         /// Control txtCant.
         /// </summary>
         /// <remarks>
@@ -69,22 +132,40 @@ namespace ProyectoOK
         protected global::System.Web.UI.WebControls.TextBox txtCant;
 
         /// <summary>
-        /// Control fileImagen.
+        /// Control fileInputImageCover.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileImagen;
+        protected global::System.Web.UI.WebControls.FileUpload fileInputImageCover;
 
         /// <summary>
-        /// Control imgImage.
+        /// Control imgProductCover.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImage;
+        protected global::System.Web.UI.WebControls.Image imgProductCover;
+
+        /// <summary>
+        /// Control fileInputProductImages.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileInputProductImages;
+
+        /// <summary>
+        /// Control containerProductImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel containerProductImagen;
 
         /// <summary>
         /// Control btnSaveProduct.

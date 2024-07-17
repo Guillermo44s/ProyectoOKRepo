@@ -9,6 +9,7 @@ using StoreOK;
 using DominioOK;
 using System.IO;
 using System.Reflection;
+using AjaxControlToolkit.Bundling;
 
 namespace ProyectoOK
 {
@@ -16,63 +17,91 @@ namespace ProyectoOK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
-               if (Session["idProduct"] != null)
-               {                
-                TheList theList = new TheList();    
-                TheProduct theProduct = new TheProduct();
-                List<TheProduct> listProduct = theList.GetListProduct(); //Obtenemos la lista de todos los productos de la BD.                
-                theProduct = listProduct.FirstOrDefault(p => p.IdProduct == int.Parse(Session["idProduct"].ToString()));  //Expresion lambda para filtrar y obtener el producto con el id correspondiente de la lista.
-                txtProduct.Text = theProduct.Product;
-                txtDescription.Text = theProduct.Description;
-                txtPrice.Text = theProduct.Price.ToString();
-                chkAvailable.Checked = theProduct.Available;
-                txtCant.Text = theProduct.Cant.ToString();
-                txtIdProduct.Text = theProduct.IdProduct.ToString();
-              
-                TheImages theImages = new TheImages(); 
-                List<string> listUrlImages = new List<string>();
-                listUrlImages = theImages.GetUrlImagesProduct(theProduct.IdProduct);
+            int tempId = 0;
+            if (Session["idProduct"] != null)
+            {
+                tempId = int.Parse(Session["idProduct"].ToString());
+            }
+
+            if (!IsPostBack)
+            {
+                if (Session["idProduct"] != null)
+                {
+                    TheList theList = new TheList();
+                    TheProduct theProduct = new TheProduct();
+                    tempId = int.Parse((Session["idProduct"].ToString()));
+
+                    List<TheProduct> listProduct = theList.GetListProduct(); //Obtenemos la lista de todos los productos de la BD.                
+                    theProduct = listProduct.FirstOrDefault(p => p.IdProduct == int.Parse((Session["idProduct"].ToString())));  //Expresion lambda para filtrar y obtener el producto con el id correspondiente de la lista.
+
+                    txtProduct.Text = theProduct.Product;
+                    txtDescription.Text = theProduct.Description;
+                    txtPrice.Text = theProduct.Price.ToString();
+                    chkAvailable.Checked = theProduct.Available;
+                    txtCant.Text = theProduct.Cant.ToString();
+                    txtIdProduct.Text = theProduct.IdProduct.ToString();
+
+                }
+            }
+            if (tempId != 0)
+            {
+                TheImages theImages = new TheImages();
+                List<string> listUrlImage = new List<string>();
+                listUrlImage = theImages.GetUrlImagesProduct(tempId); //checkea que aca iba el id del producto.
                 Image imageProductCover = (Image)Page.FindControl("imgProductCover");
 
-                
                 //Aqui se busca y carga la imagen de portada.
-                for(int i = 0; i < listUrlImages.Count; i++)
+                for (int i = 0; i < listUrlImage.Count; i++)
                 {
-                string relativePath = @"~/ImageCover/";
-                string physicalPath = Server.MapPath("/ImageCover/"+listUrlImages[i]);
-                string imagePath = relativePath + listUrlImages[i];
-                if(System.IO.File.Exists(physicalPath))
+                    string relativePath = @"~/ImageCover/";
+                    string physicalPath = Server.MapPath("/ImageCover/" + listUrlImage[i]);
+                    string imagePath = relativePath + listUrlImage[i];
+                    if (System.IO.File.Exists(physicalPath))
                     {
-                    imageProductCover.ImageUrl = imagePath;    
-                    break;
+                        imageProductCover.ImageUrl = imagePath;
+
+                        ImageButton imageButton = new ImageButton();
+                        string nameImage = listUrlImage[i];
+                        imageButton.ImageUrl = imagePath;
+                        imageButton.Click += (s, ev) => DelteProductImagen(s, ev, physicalPath, nameImage);
+                        panelPopupImageCover.Controls.Add(imageButton);
+                        break;
                     }
                 }
 
-                for (int i = 0; i < listUrlImages.Count; i++)
+                //Aqui se buscan y cargan las imagenes del prodcuto.
+                for (int i = 0; i < listUrlImage.Count; i++)
                 {
-                string relativePath = @"~/Image/";
-                string physicalPath = Server.MapPath("/Image/" + listUrlImages[i]);
-                string imagePath = relativePath + listUrlImages[i];
+                    string relativePath = @"~/Image/";
+                    string physicalPath = Server.MapPath("/Image/" + listUrlImage[i]);
+                    string imagePath = relativePath + listUrlImage[i];
                     if (System.IO.File.Exists(physicalPath))
                     {
                         Image image = new Image();
                         image.ImageUrl = imagePath;
                         containerProductImagen.Controls.Add(image);
+
+                        //Para la colocacion de imagenes botones del producto.
+                        ImageButton imageButton = new ImageButton();
+                        string nameImage = listUrlImage[i];
+                        imageButton.ImageUrl = imagePath;
+                        imageButton.ID = "imageButton"+ i;
+                        imageButton.Click += (s, ev) => DelteProductImagen(s, ev, physicalPath, nameImage);
+                        panelPopupImage.Controls.Add(imageButton); //Agregamos las imagenes botones al popupWindow.
                     }
                 }
-               }                                                         
+            }             
         }
 
         protected void btnSaveProduct_Click(object sender, EventArgs e)
         {
             TheProcedures theProcedures = new TheProcedures();
-            TheProduct theProduct = new TheProduct();
-
+            TheProduct theProduct = new TheProduct();   
             FileUpload imagenProductCover = (FileUpload)FindControl("fileInputImageCover");
             HttpFileCollection fileCollection = Request.Files; //Aqui se tomas las iamgenes del "fileInputProductImages"
             try
             {
+                
                 theProduct.Product = txtProduct.Text;
                 theProduct.Description = txtDescription.Text;
                 theProduct.Price = Decimal.Parse(txtPrice.Text);
@@ -86,11 +115,27 @@ namespace ProyectoOK
                     listProductImages.Add(image);
                 }
 
-                int idProduct = theProcedures.AddProduct(theProduct);
-                SaveImages(imagenProductCover, listProductImages, idProduct); //Llamamos al metodo AddProduct para agregar un producto y obtener el id producto para guardar la imagen.
+                if (Session["idProduct"] == null)
+                {
+                    int idProduct = theProcedures.AddProduct(theProduct);
+                    SaveImages(imagenProductCover, listProductImages, idProduct); //Llamamos al metodo AddProduct para agregar un producto y obtener el id producto para guardar la imagen.
 
-                Session["idProduct"] = idProduct;
-                Response.Redirect("FormProduct.aspx");
+                    Session["idProduct"] = idProduct;
+                    Response.Redirect("MenuAdmin.aspx");
+                    //Response.Redirect("FormProduct.aspx");
+                }
+                else{
+                    theProduct.IdProduct = int.Parse(Session["idProduct"].ToString());
+                    theProduct.Product = txtProduct.Text;
+                    theProduct.Description = txtDescription.Text;
+                    theProduct.Price = Decimal.Parse(txtPrice.Text);
+                    theProduct.Available = chkAvailable.Checked;
+                    theProduct.Cant = int.Parse(txtCant.Text);  
+                    
+                    SaveImages(imagenProductCover, listProductImages, int.Parse(Session["idProduct"].ToString()));
+                    theProcedures.UpdateProduct(theProduct);
+                 Response.Redirect("MenuAdmin.aspx");
+                }
 
             }
             catch (Exception ex)
@@ -158,7 +203,27 @@ namespace ProyectoOK
                 throw ex.InnerException;
             }
         }
+
+        private void DelteProductImagen(object sender, ImageClickEventArgs e, string physicalPhat,string nameImage)
+        {
+           TheImages theImages = new TheImages();
+            File.Delete(physicalPhat);
+                theImages.DelteProductImagen(nameImage);
+        }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FormProduct.aspx");
+        }
+
+        protected void btnClose1_Click(object sender, EventArgs e)
+        {
+            
+          Response.Redirect("FormProduct.aspx");
+        }
     }
+    
 }
 //TODO: Se debe valiar en el formulario que solo se prodra cargar la infomracion si completo todos los campos incluso imagen de portada y demas.
+//TODO: El metodo para modificar producto se debe realizar accediendo al formulario desde otra pantalla, no reiniciando la pantalla.
 //Reicorporano el pryectoOK, probando desde GuillermoR.

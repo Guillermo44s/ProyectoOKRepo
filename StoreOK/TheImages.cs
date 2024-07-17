@@ -33,6 +33,28 @@ namespace StoreOK
             }
         }
 
+        public void DelteProductImagen(string urlImage)
+        {
+            TheConnection connection = new TheConnection();
+            TheImage image = new TheImage();
+
+            try
+            {
+                connection.SetQuery("delete Image  where UrlImage = @UrlImage");
+                connection.SetParameters("@UrlImage", urlImage);             
+                connection.ExecuteAction();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //Puede que llamar a este metodo de error porque el procedimiento de arriba no da ningun valor para que la condicion del metodo CloseConnection se cumpla, atento a eso...
+                connection.CloseConnection();
+            }
+        }
+
         public List<string> GetUrlImagesProduct(int idProduct)
         {
             TheConnection connection = new TheConnection();

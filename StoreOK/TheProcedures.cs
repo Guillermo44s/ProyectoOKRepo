@@ -34,5 +34,29 @@ namespace StoreOK
                 connection.CloseConnection();
             }
         }
+
+        public void UpdateProduct(TheProduct theProduct) //Este metodo solo funciona si la pantalla FormProduct no se reinicia al presionar btnSaveProduct.
+        {         
+            TheConnection connection = new TheConnection();
+            try
+            {
+                connection.SetParameters("@IdProduct", theProduct.IdProduct);
+                connection.SetParameters("@Product", theProduct.Product);
+                connection.SetParameters("@Description", theProduct.Description);
+                connection.SetParameters("@Price", theProduct.Price);
+                connection.SetParameters("@Available", theProduct.Available);
+                connection.SetParameters("@Cant", theProduct.Cant);
+                connection.SetQuery("Update Product set Product = @Product , [Description] = @Description, Price = @Price, Available = @Available , Cant = @Cant where IdProduct = @IdProduct");
+                connection.ExecuteAction();             
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.CloseConnection();
+            }
+        }
     }
 }

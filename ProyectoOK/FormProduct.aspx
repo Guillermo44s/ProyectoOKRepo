@@ -6,18 +6,28 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
        <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        .backgroundOfTheRest
+        {
+         background-color: #000;
+         opacity: 0.7;
+         filter: alpha(opacity=70); /* IE8 y earlier, para que en los navegadores mas antiguos se vea opaco el fondo del resto.*/
+        }
+    </style>
+
     <title></title>
 </head>
 <body>
   
     <form id="form1" runat="server">
     
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
         <div class="container">
 
             <div class="col">
+
                 <asp:TextBox ID="txtIdProduct" runat="server"></asp:TextBox>
+
             </div>
 
 <div class="col">
@@ -80,21 +90,88 @@
 
             <div class="col" id="imagePreview">
          
-                 <h2>Product Images</h2>
+                 <h2>Product Image</h2>
                 <asp:Panel ID="containerProductImagen" runat="server"></asp:Panel>
 
             </div>
 
      <div>
 
+          <asp:ScriptManager ID="ScriptManagerPopupWindow" runat="server"></asp:ScriptManager>
+  
  <div class="row">
   
-  <asp:Button ID="btnSaveProduct" runat="server" Text="Button" OnClick="btnSaveProduct_Click"/>
+  <asp:Button ID="btnSaveProduct" runat="server" Text="Save" OnClick="btnSaveProduct_Click"/>
 
 </div>
 
- </div>
+         <!-- Contenido PopupWindow sobre la imagen de portada -->
+<div class="col">
 
+     <asp:Button ID="btnDeletePorductImageCover" runat="server" Text="Delete Product Image Cover"/>
+
+     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
+    TargetControlID="btnDeletePorductImageCover"
+    PopupControlID="updatePanelPopupProductImageCover"
+    BackgroundCssClass="backgroundOfTheRest"> 
+    </ajaxToolkit:ModalPopupExtender>
+
+    <asp:UpdatePanel ID="updatePanelPopupProductImageCover" runat="server">
+
+        <ContentTemplate>
+
+       <asp:Panel ID="panelPopupWindow1" runat="server">  <!--Panel que contendrá el contenido del popup, de la imagenes portada del producto.-->
+
+  <p>Image Cover of the Product</p>
+
+              <asp:Panel ID="panelPopupImageCover" runat="server"></asp:Panel>  <!--En este panel se contendran las imagen portada del producto.-->
+      <asp:Button ID="btnClose1" runat="server" Text="Close" OnClick="btnClose1_Click"/> 
+  
+     </asp:Panel> 
+
+        </ContentTemplate>
+
+    </asp:UpdatePanel>
+
+</div>
+         <!-- Fin contenido PopupWindow sobre imagen portada -->
+
+<!--Contenido PopupWindow sobre las imagenes del producto-->
+         <div class="col">
+
+         <asp:Button ID="btnDeleteProductImage" runat="server" Text="Delete Product Image"/>
+
+        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
+        TargetControlID="btnDeleteProductImage"
+        PopupControlID="updatePanelPopupProductImage"
+        BackgroundCssClass="backgroundOfTheRest"> 
+        </ajaxToolkit:ModalPopupExtender>
+   
+           <asp:UpdatePanel ID="updatePanelPopupProductImage" UpdateMode="Conditional" runat="server"> 
+
+               <ContentTemplate>
+
+       <asp:Panel ID="panelPopupWindow" runat="server">  <!--Panel que contendrá el contenido del popup, de la imagenes del producto.-->
+
+       <p>Image of the Product</p>
+
+                   <asp:Panel ID="panelPopupImage" runat="server"></asp:Panel>  <!--En este panel se contendran las imagenes del producto.-->
+           <asp:Button ID="btnClose" runat="server" Text="Close" OnClick="btnClose_Click"/> 
+       
+          </asp:Panel> 
+
+               </ContentTemplate>
+
+               <Triggers>
+
+               </Triggers>
+
+           </asp:UpdatePanel>
+
+         </div>
+
+ </div>
+            <!--Fin contenido PopupWindow sobre las imagenes del producto -->
     </form>
 
  <script src="Script/ShowImagesSelected.js" defer> </script>

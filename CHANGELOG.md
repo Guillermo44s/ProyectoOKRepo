@@ -1,4 +1,4 @@
-SE TERMINO LA FUNCION DE GUARDADO Y CARGADO EN LA BD DE IAMGENES.
+##SE TERMINO LA FUNCION DE GUARDADO Y CARGADO EN LA BD DE IAMGENES.
 
 -Se termino SOLO la funcion de guardado en las carpetas del sistema de archivos y cargado de imagenes en la BD.
 
@@ -7,3 +7,8 @@ SE TERMINO LA FUNCION DE GUARDADO Y CARGADO EN LA BD DE IAMGENES.
 -Se agrego la funcion de cargado del producto, esto para poder cargar las imagenes con el idProduct.
 
 -Se agrega la funcion de ver las imagenes que se van seleccioanndo con js.
+	
+##Reicorporando ProyectoOK desde GuillermoR
+
+-En esta parte solamnte clone el repositorio en una carpeta nueva y probe que todo funcione bien 
+dejando comentarios de prueba.

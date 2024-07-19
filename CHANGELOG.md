@@ -1,4 +1,4 @@
-##SE TERMINO LA FUNCION DE GUARDADO Y CARGADO EN LA BD DE IAMGENES.
+## SE TERMINO LA FUNCION DE GUARDADO Y CARGADO EN LA BD DE IAMGENES.
 
 -Se termino SOLO la funcion de guardado en las carpetas del sistema de archivos y cargado de imagenes en la BD.
 
@@ -8,7 +8,20 @@
 
 -Se agrega la funcion de ver las imagenes que se van seleccioanndo con js.
 	
-##Reicorporando ProyectoOK desde GuillermoR
+## Reicorporando ProyectoOK desde GuillermoR
 
 -En esta parte solamnte clone el repositorio en una carpeta nueva y probe que todo funcione bien 
 dejando comentarios de prueba.
+
+## FINALIZACION DE LA CARGA EN FORMULARIO E IMAGENES.
+
+-Se termino la fucion para cargar el producto.
+
+-Se termino la funion de modificar el producto.
+
+-Se termino la fucion para cargar las imagenes.
+
+-Se termino la funcion de eliminar lasimagenes.
+
+-Se agrego una pantalla aspx nueva, MenuAdmin. Contiene grilla y boton select para tomar el producto, boton add para ir al formualario 
+y agregar.

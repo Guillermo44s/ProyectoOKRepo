@@ -225,5 +225,4 @@ namespace ProyectoOK
     
 }
 //TODO: Se debe valiar en el formulario que solo se prodra cargar la infomracion si completo todos los campos incluso imagen de portada y demas.
-//TODO: El metodo para modificar producto se debe realizar accediendo al formulario desde otra pantalla, no reiniciando la pantalla.
-//Reicorporano el pryectoOK, probando desde GuillermoR.
+//TODO: La grilla funciona mal, muestra siempre el ultimo registro que se carg, no se porque. 

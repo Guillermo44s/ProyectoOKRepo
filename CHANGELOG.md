@@ -25,3 +25,7 @@ dejando comentarios de prueba.
 
 -Se agrego una pantalla aspx nueva, MenuAdmin. Contiene grilla y boton select para tomar el producto, boton add para ir al formualario 
 y agregar.
+
+## SOLUCION GRILLA DEL MENU ADMIN.
+
+-Solamente se arreglo el problmea de la grilla que mostraba solo el ultimo dato subido.

@@ -18,10 +18,10 @@ namespace StoreOK
                 connection.SetQuery("select idProduct , product , price , [description] , cant, available " +
                                     "from Product");
                 connection.ExecuteQuery();
-                TheProduct product = new TheProduct();
                 List<TheProduct> listproduct = new List<TheProduct>();
                 while (connection.Reader.Read())
                 {
+                     TheProduct product = new TheProduct();
                     product.IdProduct = int.Parse(connection.Reader["idProduct"].ToString());
                     product.Product = connection.Reader["product"].ToString();
                     product.Description = connection.Reader["description"].ToString();

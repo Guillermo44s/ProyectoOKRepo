@@ -34,3 +34,10 @@ y agregar.
 
 -Se coloco un boton delete product para eliminar el producto con toda su informacion incluyendo url de la bd y archivos de imagen de la
 carpeta image e image cover.
+
+## SE ARREGLO EL PROBLMA DE QUE SE SOLO SE MOSTRABAN LAS IMAGENS DEL FILE UPLOAD.
+
+-Se soluciono el problema del file upload que al momento de seleccionar las imagenes a subir, se mostraban en el contenedor 
+solo las imagenes seleccionadas y no las dela bd. Pero luego al momento de guardar si se mostraban todas las 
+imagesn incluyecdo las guardadas en la bd. Ahora se muestran en directo las imagens guardadas de la bd y las que se van a guardar, es decir,
+las seleccionadas.

@@ -88,12 +88,11 @@
 
             </div>
 
-            <div class="col" id="imagePreview">
-         
                  <h2>Product Image</h2>
+            <div class="col" id="imagePreview"></div>
+         
                 <asp:Panel ID="containerProductImagen" runat="server"></asp:Panel>
 
-            </div>
 
      <div>
 

@@ -29,3 +29,8 @@ y agregar.
 ## SOLUCION GRILLA DEL MENU ADMIN.
 
 -Solamente se arreglo el problmea de la grilla que mostraba solo el ultimo dato subido.
+
+## SE AGREGO AL FUNCIONALIDAD DE ELIMINAR UN PRODUCTO CON TODA SU INFORMACION.
+
+-Se coloco un boton delete product para eliminar el producto con toda su informacion incluyendo url de la bd y archivos de imagen de la
+carpeta image e image cover.

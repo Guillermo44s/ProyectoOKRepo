@@ -105,6 +105,13 @@
 
 </div>
 
+         <div>
+
+         <asp:Button ID="btnDeleteProduct" runat="server" Text="Delete" OnClick="btnDeleteProduct_Click" />
+
+         </div>
+
+
          <!-- Contenido PopupWindow sobre la imagen de portada -->
 <div class="col">
 

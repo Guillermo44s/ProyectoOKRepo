@@ -58,5 +58,24 @@ namespace StoreOK
                 connection.CloseConnection();
             }
         }
+
+        public void DeleteProduct(int idProduct)
+        {
+            TheConnection connection = new TheConnection();
+            try
+            {
+                connection.SetParameters("@IdProduct", idProduct);              
+                connection.SetQuery("delete Product from product where IdProduct = @IdProduct");
+                connection.ExecuteAction();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.CloseConnection();
+            }
+        }
     }
 }

@@ -221,6 +221,30 @@ namespace ProyectoOK
             
           Response.Redirect("FormProduct.aspx");
         }
+
+        protected void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            TheProcedures theProcedures = new TheProcedures();
+            theProcedures.DeleteProduct(int.Parse(Session["idProduct"].ToString()));
+
+            TheImages theImages = new TheImages();
+            List<string> listUrlImage = theImages.GetUrlImagesProduct(int.Parse(Session["idProduct"].ToString()));
+            for (int i = 0; i < listUrlImage.Count; i++)
+            {
+                string physicalPathImageCover = Server.MapPath("/ImageCover/" + listUrlImage[i]);
+                if (System.IO.File.Exists(physicalPathImageCover))
+                {
+                    File.Delete(physicalPathImageCover);
+                }
+                    string physicalPath = Server.MapPath("/Image/" + listUrlImage[i]);
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    File.Delete(physicalPath);
+                    theImages.DelteProductImagen(listUrlImage[i]);
+                }
+            }
+            Response.Redirect("MenuAdmin.aspx");
+        }
     }
     
 }

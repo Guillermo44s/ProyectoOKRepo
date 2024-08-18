@@ -41,3 +41,7 @@ carpeta image e image cover.
 solo las imagenes seleccionadas y no las dela bd. Pero luego al momento de guardar si se mostraban todas las 
 imagesn incluyecdo las guardadas en la bd. Ahora se muestran en directo las imagens guardadas de la bd y las que se van a guardar, es decir,
 las seleccionadas.
+
+## SE AGRGO UNA PAGINA LOGIN.
+
+-Solamente se agrego una pagina login.

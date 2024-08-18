@@ -49,3 +49,9 @@ las seleccionadas.
 ## REALIZANDO PRUEBAD DE PUSH..
 
 -Probando que todo funciones bien desde GuillermoR.
+
+## SE IMPLEMENTO AUTORIZACION BASADA EN USUARIOS.
+
+-Se implemento autorizacion basada en usuarios con el sistema membership sql y la herramienta asp_net.exe.
+
+-Se agrego un Login y registro de usuarios.

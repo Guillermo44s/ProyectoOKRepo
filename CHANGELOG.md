@@ -55,3 +55,14 @@ las seleccionadas.
 -Se implemento autorizacion basada en usuarios con el sistema membership sql y la herramienta asp_net.exe.
 
 -Se agrego un Login y registro de usuarios.
+
+## SE IMPLEMENTO ADMINISTRACION DE ROLES CON ROL MANAGER PROVIDER.
+
+-Se implemento la creacion y asignacion de roles por ususario.
+
+## SE IMPLEMENTO AUTORIZACION BASADA EN ROLES Y ADMINISTRACION DE ROLES CON ROLE MANAGER PROVIDER.
+
+-Se implemento la capacidad de crear roles y asignarseolos a los usuairos registrados.
+
+-Se agregaron paginas que con acceso admin, manage role(ManageRoles.aspx).
+

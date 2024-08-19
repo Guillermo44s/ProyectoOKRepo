@@ -18,13 +18,14 @@ namespace ProyectoOK
         protected void btnCreateUserAccount_Click(object sender, EventArgs e)
         {
           MembershipCreateStatus memberCreateStatus;
-            MembershipUser newUser = Membership.CreateUser(txtNewUser.Text,txtNewPassword.Text,txtNewEmail.Text,null,null,true,
+            MembershipUser newUser = System.Web.Security.Membership.CreateUser(txtNewUser.Text,txtNewPassword.Text,txtNewEmail.Text,null,null,true,
                 out memberCreateStatus);
 
             switch (memberCreateStatus)
             {
                 case MembershipCreateStatus.Success:
                     lblCreateAccountResults.Text = "The user account was successfully created!";
+                    Roles.AddUserToRole(txtNewUser.Text, "Normal");
                     break;
                 case MembershipCreateStatus.DuplicateUserName:
                     lblCreateAccountResults.Text = "There already exists a user with this username.";

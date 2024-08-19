@@ -12,12 +12,14 @@ namespace ProyectoOK
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.IsAuthenticated && !string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                // This is an unauthorized, authenticated request...
+                Response.Redirect("~/UnauthorizedAccess.aspx");
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if(Membership.ValidateUser(txtUserName.Text,txtPassword.Text))
+            if(System.Web.Security.Membership.ValidateUser(txtUserName.Text,txtPassword.Text))
             {
                 FormsAuthentication.RedirectFromLoginPage(txtUserName.Text,false);
             }

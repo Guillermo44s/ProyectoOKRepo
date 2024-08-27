@@ -77,5 +77,14 @@ namespace StoreOK
                 connection.CloseConnection();
             }
         }
+
+        public void AddProductToCart(string userName, int idProduct)
+        {
+            TheConnection theConnection = new TheConnection();
+            theConnection.SetStoreProcedure("AddProductInCart");
+            theConnection.SetParameters("@UserName", userName);
+            theConnection.SetParameters("@IdProduct",idProduct);
+            theConnection.ExecuteAction();
+        }
     }
 }

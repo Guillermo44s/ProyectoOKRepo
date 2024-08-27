@@ -31,7 +31,13 @@ namespace StoreOK
             command.Connection = connection;
         }
 
-  
+        internal void SetStoreProcedure(string procedure)
+        {
+            command.CommandText = procedure;
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Connection = connection;
+        }
+
         internal void SetParameters(string name, object value)
         {
             command.Parameters.AddWithValue(name, value);

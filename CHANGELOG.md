@@ -74,4 +74,10 @@ las seleccionadas.
 
 -Se agrego una pagina nueva ViewProduct.aspx.
 
+## SE IMPLEMENTO LA FUNCION DE AGREGAR PRODUCTO AL CARRITO.
+
+-Se implemento la funcion de agregar producto al carrito a travez de ViewProduct.aspx.
+
+-Se agrego un control login view para que solo los ususarios logeados puedan agregar un producto al carrito.
+
 

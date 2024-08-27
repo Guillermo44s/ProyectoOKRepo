@@ -20,6 +20,7 @@ namespace ProyectoOK
                 List<TheProduct> listAvailableProducts = GetAvailableProducts();
                 foreach (TheProduct product in listAvailableProducts)
                 {
+                    Image imageCover = new Image();
                     Button button = new Button();
                     button.ID = "btn" + product.Product;
                     button.CommandArgument = product.IdProduct.ToString();
@@ -33,12 +34,8 @@ namespace ProyectoOK
         private List<TheProduct> GetAvailableProducts()
         {
             TheList theList = new TheList();
-            List<TheProduct> listProducts = theList.GetListProducts();
-
-            Predicate<TheProduct> isAvailable = availableProduct => availableProduct.Available == true; //Predicado para filtrar los productos disponibles en expresion lambda.
-
-            List<TheProduct> listAvailableProducts = listProducts.FindAll(isAvailable); //Recuperamos los valores que devolvio el predicado.
-
+            List<TheProduct> listProducts = theList.GetListProducts();       
+            List<TheProduct> listAvailableProducts = listProducts.FindAll(x => x.Available == true); //Predicate en lambda, tomar solo productos disponibles.
             return listAvailableProducts;
         }
 

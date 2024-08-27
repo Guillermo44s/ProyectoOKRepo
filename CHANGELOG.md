@@ -66,3 +66,12 @@ las seleccionadas.
 
 -Se agregaron paginas que con acceso admin, manage role(ManageRoles.aspx).
 
+## SE IMPLEMENTO LA FUNCION DE SELECCIONAR UN PRODUCTO.
+
+-Se implemento la funcion de seleccionar un producto y pasar a la pagina ViewProduct.aspx.
+
+-Se elimina la pagina Default.aspx sin NavVar.master y se agrego una nuevapagina Default.aspx, ahora con NavBar.master.
+
+-Se agrego una pagina nueva ViewProduct.aspx.
+
+

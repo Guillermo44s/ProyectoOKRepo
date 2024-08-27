@@ -31,7 +31,7 @@ namespace ProyectoOK
                     TheProduct theProduct = new TheProduct();
                     tempId = int.Parse((Session["idProduct"].ToString()));
 
-                    List<TheProduct> listProduct = theList.GetListProduct(); //Obtenemos la lista de todos los productos de la BD.                
+                    List<TheProduct> listProduct = theList.GetListProducts(); //Obtenemos la lista de todos los productos de la BD.                
                     theProduct = listProduct.FirstOrDefault(p => p.IdProduct == int.Parse((Session["idProduct"].ToString())));  //Expresion lambda para filtrar y obtener el producto con el id correspondiente de la lista.
 
                     txtProduct.Text = theProduct.Product;

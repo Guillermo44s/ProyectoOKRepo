@@ -10,7 +10,7 @@ namespace StoreOK
 {
     public class TheList
     {
-        public List<TheProduct> GetListProduct()
+        public List<TheProduct> GetListProducts()
         {
                 TheConnection connection = new TheConnection();
             try

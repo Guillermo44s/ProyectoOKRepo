@@ -17,7 +17,7 @@ namespace ProyectoOK
             Session.Clear();
             //TheProduct theProdct = new TheProduct();
             TheList theList = new TheList();
-            dgvProduct.DataSource = theList.GetListProduct();
+            dgvProduct.DataSource = theList.GetListProducts();
             dgvProduct.DataBind(); 
         }
 

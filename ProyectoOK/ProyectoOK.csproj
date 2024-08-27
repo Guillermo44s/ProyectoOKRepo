@@ -96,6 +96,7 @@
     <Content Include="README.txt" />
     <Content Include="Script\ShowImagesSelected.js" />
     <Content Include="UnauthorizedAccess.aspx" />
+    <Content Include="ViewProduct.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="UnauthorizedAccess.aspx.designer.cs">
       <DependentUpon>UnauthorizedAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewProduct.aspx.cs">
+      <DependentUpon>ViewProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewProduct.aspx.designer.cs">
+      <DependentUpon>ViewProduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -24,13 +24,14 @@ namespace StoreOK
             command = new SqlCommand();
         }
 
-   internal void SetQuery(string query)
+        internal void SetQuery(string query)
         {
             command.CommandText = query;
             command.CommandType = System.Data.CommandType.Text;
             command.Connection = connection;
         }
 
+  
         internal void SetParameters(string name, object value)
         {
             command.Parameters.AddWithValue(name, value);

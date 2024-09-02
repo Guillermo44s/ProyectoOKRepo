@@ -249,4 +249,4 @@ namespace ProyectoOK
     
 }
 //TODO: Se debe valiar en el formulario que solo se prodra cargar la infomracion si completo todos los campos incluso imagen de portada y demas.
-//TODO: La grilla funciona mal, muestra siempre el ultimo registro que se carg, no se porque. 
+//TODO: Se debe hacer que la pagina se refresque al presionar el boton close de las ventans emergentes popup donde se muestran las imagenes.

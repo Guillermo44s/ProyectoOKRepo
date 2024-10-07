@@ -80,4 +80,14 @@ las seleccionadas.
 
 -Se agrego un control login view para que solo los ususarios logeados puedan agregar un producto al carrito.
 
+## SE IMPLEMENTO UN PERFIL.
 
+-Valide el ViewProduct.apsx para que no se acceda sin un idProduct en session.
+
+-Ahora se generan las imagenCover de los productos.
+
+-Se agrego una clase al panel showAvailableProduct para acomodar el diseño temporalmente.
+
+-Se quito clase al panel showAvailableProduct para acomodar.
+
+-Se implemento un perfil para que el ususario pueda ver los productos que teiene en el carrito y demas.

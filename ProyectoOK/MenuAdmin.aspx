@@ -7,7 +7,7 @@
 
         <Columns>
             <asp:BoundField HeaderText="Product" DataField="Product"/>
-            <asp:CommandField  ShowSelectButton="true" HeaderText="Change Some" SelectText="Select"/>
+            <asp:CommandField  ShowSelectButton="true" HeaderText="Modificar" SelectText="Select"/>
         </Columns>
 
     </asp:GridView>

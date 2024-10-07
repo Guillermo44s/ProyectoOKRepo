@@ -148,7 +148,7 @@ namespace ProyectoOK
 
         private void SaveImages(FileUpload imagenProductCover, List<HttpPostedFile> listProductImages, int idProduct)
         {                             
-            string  pathImages = Server.MapPath(@"\Image\");  
+            string pathImages = Server.MapPath(@"\Image\");  
             string pathImageCover = Server.MapPath(@"\ImageCover\");
             TheImages theImages = new TheImages();
             try

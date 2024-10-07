@@ -91,3 +91,7 @@ las seleccionadas.
 -Se quito clase al panel showAvailableProduct para acomodar.
 
 -Se implemento un perfil para que el ususario pueda ver los productos que teiene en el carrito y demas.
+
+## SE COLOCO UN NAV BAR.
+
+-Solamente se coloco un nav var.

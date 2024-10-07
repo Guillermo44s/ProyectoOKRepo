@@ -17,7 +17,15 @@
 
   <div class="container-fluid">
 
-    <span class="navbar-brand mb-0 h1">Navbar</span>
+    <span class="navbar-brand mb-0 h1">Navbar
+
+        <a href="Default.aspx">Home</a>
+        <a href="Login.aspx">Login</a>
+        <a href="MenuAdmin.aspx">Menu Admin</a>
+        <a href="Porfile.aspx">Me Porfile</a>       
+        <a href="CreateUserAccounts.aspx">Register</a>
+
+    </span>
 
   </div>
 

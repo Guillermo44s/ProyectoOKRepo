@@ -95,3 +95,7 @@ las seleccionadas.
 ## SE COLOCO UN NAV BAR.
 
 -Solamente se coloco un nav var.
+
+## ARREGLO NAV BAR.
+
+-Se arreglo el problema de la navbar que no podia salir del directorio Membership.

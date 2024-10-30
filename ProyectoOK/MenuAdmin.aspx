@@ -13,4 +13,8 @@
     </asp:GridView>
 
     <asp:Button ID="btnGoFormProduct" runat="server" Text="Add" OnClick="btnGoFormProduct_Click" />
+
+    <div>
+        <a href="/Membership/ManageRoles.aspx"> Go Mange Role</a>
+    </div>
 </asp:Content>

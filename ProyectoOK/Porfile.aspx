@@ -3,7 +3,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Label ID="lblUserName" runat="server" ></asp:Label>
-    <asp:Panel ID="showProductImageCover" runat="server"></asp:Panel>
+    <link  rel="stylesheet" href="Content/MeStyle.css"/> 
+
+    <div class="container mt-5">
+
+        <div class="row">
+
+         <div class="col-12 text-center mb-4">
+
+    <asp:Label ID="lblUserName" CssClass="h4" runat="server" ></asp:Label>
+
+         </div>
+
+    <asp:Panel ID="showProductImageCover" CssClass="product-container" runat="server"></asp:Panel>
 
 </asp:Content>

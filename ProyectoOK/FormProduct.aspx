@@ -22,100 +22,129 @@
   
     <form id="form1" runat="server">
     
-        <div class="container">
+        <!-- PROBANDO DISEÑO NUEVO... --> 
 
-            <div class="col">
+        <div class="container mt-5">
 
-                <asp:TextBox ID="txtIdProduct" runat="server"></asp:TextBox>
+            <h2 class="text-center mb-4">Form Prouct and Details</h2>
+
+            <div class="row">
+
+            <div class="col-md-6 mb-3"">
+                <asp:Label ID="lblIdProduct" runat="server" CssClass="form-label" Text="ID"></asp:Label>
+                <asp:TextBox ID="txtIdProduct" CssClass="form-control" runat="server"></asp:TextBox>
 
             </div>
 
-<div class="col">
+<div class="col-md-6 mb-3"">
 
-    <asp:Label ID="lblProduct" runat="server" Text="Product"></asp:Label>
-    <asp:TextBox ID="txtProduct" runat="server"></asp:TextBox>
+    <asp:Label ID="lblProduct" CssClass="form-label" runat="server" Text="Product"></asp:Label>
+    <asp:TextBox ID="txtProduct" CssClass="form-control" runat="server"></asp:TextBox>
 
 </div>
 
- <div class="col">
+ <div class="col-md-6 mb-3">
 
-     <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
-    <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
-
- </div>
-
- <div class="col">
-
-     <asp:Label ID="lblPrice" runat="server" Text="Price"></asp:Label>
-    <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
+     <asp:Label ID="lblDescription" CssClass="form-label" runat="server" Text="Description"></asp:Label>
+    <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server"></asp:TextBox>
 
  </div>
 
- <div class="col">
+ <div class="col-md-6 mb-3">
 
-     <asp:Label ID="lblAvailable" runat="server" Text="Available"></asp:Label>
-    <asp:CheckBox ID="chkAvailable" runat="server" />
+     <asp:Label ID="lblPrice" CssClass="form-label" runat="server" Text="Price"></asp:Label>
+    <asp:TextBox ID="txtPrice" CssClass="form-control" runat="server"></asp:TextBox>
 
  </div>
 
- <div class="col">
+ <div class="col-md-6 mb-3 d-flex align-items-center">
 
-    <asp:Label ID="lblCant" runat="server" Text="Cant"></asp:Label>
+     <asp:Label ID="lblAvailable"  CssClass="form-label me-2" runat="server" Text="Available"></asp:Label>
+    <asp:CheckBox ID="chkAvailable" CssClass="form-check-input" runat="server" />
+
+ </div>
+
+ <div class="col-md-6 mb-3">
+
+    <asp:Label ID="lblCant" CssClass="form-label" runat="server" Text="Cant"></asp:Label>
     <asp:TextBox ID="txtCant" runat="server"></asp:TextBox>
 
  </div>
+                </div>
 
-<div>
 
-    <asp:FileUpload ID="fileInputImageCover" runat="server"/>
+            </div>
+   
 
-</div>
+        <!-- FIN DISEÑO NUEVO -->
 
-<div>
+        <div class="container mt-4">
 
-     <div id="imagePreviewCover">
+            <div class="row mb-4">
+
+                 <div class="col-md-6">
+
+    <asp:FileUpload ID="fileInputImageCover" CssClass="form-control" runat="server"/>
+
+     <div id="imagePreviewCover" class="mt-3">
 
          <h2>Cover Image</h2>
-         <asp:Image ID="imgProductCover"  ImageUrl="" runat="server" />
+         <asp:Image ID="imgProductCover" CssClass="img-fluid" runat="server" />
 
     </div>
+                     </div>
 
-</div>
+                 <div class="col-md-6">
 
-            <div class="col">
+                <asp:FileUpload ID="fileInputProductImages" runat="server"  CssClass="form-control" AllowMultiple="true"/>
+                 <h2>Product Image</h2>
 
-                <asp:FileUpload ID="fileInputProductImages" runat="server"  AllowMultiple="true"/>
+                      <div  id="imagePreview" class="d-flex flex-wrap">
+                <asp:Panel ID="containerProductImagen" CssClass="d-flex flex-wrap" runat="server"></asp:Panel>
+
+                          </div>
+
+                     </div>
+
+                </div>
 
             </div>
 
-                 <h2>Product Image</h2>
-            <div class="col" id="imagePreview"></div>
-         
-                <asp:Panel ID="containerProductImagen" runat="server"></asp:Panel>
-
-
-     <div>
-
-          <asp:ScriptManager ID="ScriptManagerPopupWindow" runat="server"></asp:ScriptManager>
-  
- <div class="row">
-  
-  <asp:Button ID="btnSaveProduct" runat="server" Text="Save" OnClick="btnSaveProduct_Click"/>
+<div>
 
 </div>
 
-         <div>
-
-         <asp:Button ID="btnDeleteProduct" runat="server" Text="Delete" OnClick="btnDeleteProduct_Click" />
-
-         </div>
+   <!--         <div class="col" id="imagePreview"></div> -->
 
 
-         <!-- Contenido PopupWindow sobre la imagen de portada -->
-<div class="col">
+        <div class="container mt-4">
 
-     <asp:Button ID="btnDeletePorductImageCover" runat="server" Text="Delete Product Image Cover"/>
+   <asp:ScriptManager ID="ScriptManagerPopupWindow" runat="server"></asp:ScriptManager>   
+            
+             <div class="row mb-3">
+        <div class="col text-center">
 
+  <asp:Button ID="btnSaveProduct" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="btnSaveProduct_Click"/>
+
+            </div>
+
+                 </div>
+
+
+        <div class="row mb-3">
+        <div class="col text-center">
+
+         <asp:Button ID="btnDeleteProduct" runat="server" Text="Delete" CssClass="btn btn-danger" OnClick="btnDeleteProduct_Click" />
+
+
+            </div>
+            </div>
+
+
+        <div class="row mb-3">
+        <div class="col text-center">
+
+     <asp:Button ID="btnDeletePorductImageCover" runat="server" CssClass="btn btn-warning" Text="Delete Product Image Cover"/>
      <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
     TargetControlID="btnDeletePorductImageCover"
     PopupControlID="updatePanelPopupProductImageCover"
@@ -139,20 +168,22 @@
 
     </asp:UpdatePanel>
 
-</div>
-         <!-- Fin contenido PopupWindow sobre imagen portada -->
+            </div>
+            </div>
 
-<!--Contenido PopupWindow sobre las imagenes del producto-->
-         <div class="col">
 
-         <asp:Button ID="btnDeleteProductImage" runat="server" Text="Delete Product Image"/>
+
+                <div class="row mb-3">
+                       <div class="col text-center">
+
+         <asp:Button ID="btnDeleteProductImage" CssClass="btn btn-warning" runat="server" Text="Delete Product Image"/>
 
         <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
         TargetControlID="btnDeleteProductImage"
         PopupControlID="updatePanelPopupProductImage"
         BackgroundCssClass="backgroundOfTheRest"> 
         </ajaxToolkit:ModalPopupExtender>
-   
+
            <asp:UpdatePanel ID="updatePanelPopupProductImage" UpdateMode="Conditional" runat="server"> 
 
                <ContentTemplate>
@@ -174,13 +205,17 @@
 
            </asp:UpdatePanel>
 
-         </div>
+                           </div>
+                    </div>
+         
+            </div>
 
- </div>
-            <!--Fin contenido PopupWindow sobre las imagenes del producto -->
     </form>
 
  <script src="Script/ShowImagesSelected.js" defer> </script>
+
+             
+    
 
 </body>
 </html>

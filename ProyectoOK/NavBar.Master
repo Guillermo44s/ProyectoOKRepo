@@ -13,23 +13,55 @@
 <body>
 
 <!-- As a heading -->
-<nav class="navbar bg-body-tertiary " data-bs-theme="dark">
 
-  <div class="container-fluid">
+  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" data-bs-theme="dark">
 
-    <span class="navbar-brand mb-0 h1">Navbar
+  <!--  <a class="navbar-brand" href="#">Navbar</a> -->
 
-        <a href="../Default.aspx">Home</a>
-        <a href="../Login.aspx">Login</a>
-        <a href="../MenuAdmin.aspx">Menu Admin</a>
-        <a href="../Porfile.aspx">Me Porfile</a>       
-        <a href="../CreateUserAccounts.aspx">Register</a>
+      
 
-    </span>
+    <div class="collapse navbar-collapse" id="navbarNav">
 
-  </div>
+         <ul class="navbar-nav ">
+
+              <li class="nav-item me-3">
+
+                  <a href="../Default.aspx" class="nav-link custom-link active" >Home</a>
+
+             </li>
+
+             <li class="nav-item me-3">
+
+                  <a href="../Login.aspx" class="nav-link custom-link">Login</a>
+
+             </li>
+
+             <li class="nav-item me-3">
+
+                 <a href="../MenuAdmin.aspx" class="nav-link custom-link">Menu Admin</a>
+
+            </li>
+
+             <li class="nav-item me-3">
+
+                <a href="../Porfile.aspx" class="nav-link custom-link">Me Porfile</a>
+
+           </li>
+
+           <li class="nav-item me-3">
+
+                <a href="../CreateUserAccounts.aspx" class="nav-link custom-link">Register</a>
+
+           </li>
+
+             </ul>
+
+        </div>
 
 </nav>
+
+
 
         <div class="container-fluid">
 

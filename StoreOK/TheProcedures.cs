@@ -86,5 +86,13 @@ namespace StoreOK
             theConnection.SetParameters("@IdProduct",idProduct);
             theConnection.ExecuteAction();
         }
+
+        public void DeleteUserCart(int idProduct)
+        {
+            TheConnection theConnection = new TheConnection();
+            theConnection.SetParameters("@IdProduct", idProduct);
+            theConnection.SetStoreProcedure("DeleteUserCart");
+            theConnection.ExecuteAction();
+        }
     }
 }

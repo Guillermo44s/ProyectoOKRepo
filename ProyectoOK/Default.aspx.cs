@@ -21,13 +21,47 @@ namespace ProyectoOK
                     button.CommandArgument = product.IdProduct.ToString();
                     button.Click += new EventHandler(ViewProduct);
                     button.Text = product.Product;
+                    button.Click += new EventHandler(ViewProduct);
+
+                    button.CssClass = "product-button btn btn-primary ";
+
+
+                //  button.CssClass = "btn btn-primary";
+                //   button.Style.Add("width", "100%");
+                //  button.Style.Add("max-height", "80px");
+                //button.Style.Add("display", "block");
+                //  button.Style.Add("margin", "0 auto");
+
+
 
                     Image imageCover = new Image();
                     imageCover.ImageUrl = GetImageCoverProduct(product.IdProduct);
+                    imageCover.CssClass = "product-image";
 
-                    showAvailableProduct.Controls.Add(imageCover);
-                    showAvailableProduct.Controls.Add(button);    
-                }
+
+                //  imageCover.CssClass = "img-fluid";
+                //imageCover.Style.Add("max-width", "100%");
+                //imageCover.Style.Add("max-height", "100%");
+
+                //imageCover.Style.Add("object-fit", "cover");
+                //CssClass="d-flex flex-wrap justify-content-start gap-3" clase para el panel...
+                //container-fluid
+                //Style="max-width: 400px; max-height: 400px; margin: 10px;"
+                //card-img-top 
+
+                //   Panel showAvailableProduct = new Panel();
+                //  showAvailableProduct.CssClass = "card";
+                //   showAvailableProduct.Style.Add("max-width", "400px");
+                //    showAvailableProduct.Style.Add("max-height", "1000px");
+
+                showAvailableProduct.Controls.Add(imageCover);
+                showAvailableProduct.Controls.Add(button);
+
+        //     panel.Controls.Add(showAvailableProduct);
+             
+
+
+            }
         }
 
         private List<TheProduct> GetAvailableProducts() //Traemos los productos y filtramos los disponibles.

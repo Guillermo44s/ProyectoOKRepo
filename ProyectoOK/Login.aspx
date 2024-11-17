@@ -3,24 +3,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1>Login</h1>
 
-    <div>
-        <asp:Label ID="lblUserName" runat="server" Text="User"></asp:Label>
-<asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+ <div class="card p-4" style="max-width: 400px; width: 100%;">
+
+    <h1 class="text-center mb-4" >Login</h1>
+
+    <div class="mb-3">
+        <asp:Label ID="lblUserName" CssClass="form-label" runat="server" Text="User"></asp:Label>
+<asp:TextBox ID="txtUserName" CssClass="form-control" runat="server"></asp:TextBox>
     </div>
 
-      <div>
-          <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-          <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+      <div class="mb-3">
+          <asp:Label ID="lblPassword" CssClass="form-label"  runat="server" Text="Password"></asp:Label>
+          <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
   </div>
 
-    <div>
-        <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text ="Login" />
+    <div class="mb-3">
+        <asp:Button ID="btnLogin" runat="server"  CssClass="btn btn-primary" OnClick="btnLogin_Click" Text ="Login" />
     </div>
 
-    <div>
-        <asp:Label ID="lblInvalidCredentialsMessage" Visible="false" runat="server" ></asp:Label>
+
+    <div class="text-center">
+        <asp:Label ID="lblInvalidCredentialsMessage" Visible="false" runat="server" >User does not exist.</asp:Label>
     </div>
+
+     </div>
+
+        </div>
+
+
+
+
+
 
 </asp:Content>
